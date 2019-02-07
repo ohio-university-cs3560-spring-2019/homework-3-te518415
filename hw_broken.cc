@@ -2,19 +2,7 @@
 #include <vector>
 #include <cmath>
 
-int deviation( int* a, int n);
 
-int main()
-{
-	std::vector< int > v;
-	int _10 = 10;
-	while( _10 >= 0 )
-	{
-		v.push_back(_10);
-		std::cout << deviation(v) << std::endl;
-		_10 - 1;
-	}
-}
 
 int deviation( int* a, int n )
 {
