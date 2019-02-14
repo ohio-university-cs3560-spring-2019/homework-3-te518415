@@ -1,0 +1,72 @@
+\hypertarget{hw3_8cc}{}\section{hw3.\+cc File Reference}
+\label{hw3_8cc}\index{hw3.cc@{hw3.cc}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hw3_8cc_a6943e3b63e96f794e1abdc2de84e9f69}{deviation}} (int $\ast$a, int n)
+\begin{DoxyCompactList}\small\item\em This function calculates the standard deviation from a set of given numbers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hw3_8cc_a6943e3b63e96f794e1abdc2de84e9f69}\label{hw3_8cc_a6943e3b63e96f794e1abdc2de84e9f69}} 
+\index{hw3.cc@{hw3.cc}!deviation@{deviation}}
+\index{deviation@{deviation}!hw3.cc@{hw3.cc}}
+\subsubsection{\texorpdfstring{deviation()}{deviation()}}
+{\footnotesize\ttfamily int deviation (\begin{DoxyParamCaption}\item[{int $\ast$}]{a,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+This function calculates the standard deviation from a set of given numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int$\ast$} & a\+: A pointer to an int array \\
+\hline
+{\em int} & n\+: The number of entries in int$\ast$ a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the standard deviation (double) 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file hw3.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     vector <double> v; \textcolor{comment}{//Declare a vector}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i <= n - 1; i++) \textcolor{comment}{//Fill vector with ints from int* a}}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         v.push\_back(a[i]);}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     }
+\DoxyCodeLine{28     \textcolor{keywordtype}{double} sum; \textcolor{comment}{//Holds the sum of the numbers}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i <= v.size() - 1; i++) \textcolor{comment}{//Find the sum}}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         sum += v[i];}
+\DoxyCodeLine{33     \} }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{double} mean = sum /= v.size(); \textcolor{comment}{//Find the mean}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{double} stddev = 0; \textcolor{comment}{//Initialize a double for the standard deviation}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i <= v.size() -1; i++) \textcolor{comment}{//Add every entry using the equation (v[i]-mean)\string^2}}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         stddev = stddev + (v[i] - mean) * (v[i] - mean); }
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     stddev = stddev / v.size(); \textcolor{comment}{//Divide the current stddev by the size of the vector}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordflow}{if}(stddev == 0)}
+\DoxyCodeLine{47         std::cout << \textcolor{stringliteral}{"Sigma is zero."} << std::endl;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} sqrt(stddev); \textcolor{comment}{//Return the square root of stddev, so returning the standard deviation}}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
